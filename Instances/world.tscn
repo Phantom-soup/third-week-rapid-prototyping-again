@@ -1,3 +1,46 @@
-[gd_scene format=3 uid="uid://c813mjpmvuqea"]
+[gd_scene load_steps=8 format=3 uid="uid://c813mjpmvuqea"]
+
+[ext_resource type="PackedScene" uid="uid://3oetpb0fhym5" path="res://Instances/Button_Floor.tscn" id="1_ofqpk"]
+[ext_resource type="PackedScene" uid="uid://c0yeot8dnockd" path="res://Instances/door_scene.tscn" id="2_ssaec"]
+[ext_resource type="PackedScene" uid="uid://ixijbmta3kxr" path="res://Instances/Player.tscn" id="3_ou8vh"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ofqpk"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_ssaec"]
+sky_material = SubResource("ProceduralSkyMaterial_ofqpk")
+
+[sub_resource type="Environment" id="Environment_ou8vh"]
+background_mode = 2
+sky = SubResource("Sky_ssaec")
+tonemap_mode = 2
+
+[sub_resource type="BoxMesh" id="BoxMesh_vbgup"]
+size = Vector3(13.955, 0.1, 15.525)
 
 [node name="World" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ou8vh")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0589532, 0)
+use_collision = true
+mesh = SubResource("BoxMesh_vbgup")
+
+[node name="Floor Button" parent="." instance=ExtResource("1_ofqpk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.524735, 0, 1.41546)
+
+[node name="Door_Scene" parent="." instance=ExtResource("2_ssaec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.311022, 0, -1.11901)
+
+[node name="Player" parent="." instance=ExtResource("3_ou8vh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.299, 0, 1.88194)
+
+[connection signal="press" from="Floor Button" to="Door_Scene" method="turnon"]
+[connection signal="release" from="Floor Button" to="Door_Scene" method="turnoff"]

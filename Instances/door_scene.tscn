@@ -8,6 +8,24 @@ size = Vector3(1.5, 2.5, 0.1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_cu05g"]
 size = Vector3(1.49219, 2.51953, 0.14624)
 
+[sub_resource type="Animation" id="Animation_u4h5h"]
+resource_name = "Door_Close"
+length = 0.2
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Object_Doors/Door_Left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -2, 1.25, 0, 0.2, 1, -0.75, 1.25, 0)
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Object_Doors/Door_Right")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 2, 1.25, 0, 0.2, 1, 0.75, 1.25, 0)
+
 [sub_resource type="Animation" id="Animation_f0ayj"]
 resource_name = "Door_Open"
 length = 0.2
@@ -42,24 +60,6 @@ tracks/1/path = NodePath("Object_Doors/Door_Right")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = PackedFloat32Array(0, 1, 0.75, 1.25, 0)
-
-[sub_resource type="Animation" id="Animation_u4h5h"]
-resource_name = "Door_Close"
-length = 0.2
-tracks/0/type = "position_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Object_Doors/Door_Left")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, -2, 1.25, 0, 0.2, 1, -0.75, 1.25, 0)
-tracks/1/type = "position_3d"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Object_Doors/Door_Right")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 2, 1.25, 0, 0.2, 1, 0.75, 1.25, 0)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hsebv"]
 _data = {

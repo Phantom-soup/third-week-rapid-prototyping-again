@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://3oetpb0fhym5"]
 
-[ext_resource type="Script" uid="uid://btphnqai0qjyo" path="res://Scripts/floor_button.gd" id="1_445kb"]
+[ext_resource type="Script" uid="uid://gv3x5somu86o" path="res://Scripts/floor_button.gd" id="1_445kb"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_vegry"]
 
