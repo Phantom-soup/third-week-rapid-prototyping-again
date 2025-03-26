@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://c813mjpmvuqea"]
+[gd_scene load_steps=9 format=3 uid="uid://c813mjpmvuqea"]
 
 [ext_resource type="PackedScene" uid="uid://3oetpb0fhym5" path="res://Instances/Button_Floor.tscn" id="1_ofqpk"]
 [ext_resource type="PackedScene" uid="uid://c0yeot8dnockd" path="res://Instances/door_scene.tscn" id="2_ssaec"]
 [ext_resource type="PackedScene" uid="uid://ixijbmta3kxr" path="res://Instances/Player.tscn" id="3_ou8vh"]
+[ext_resource type="PackedScene" uid="uid://bf52st6b3bhgp" path="res://Instances/box.tscn" id="4_ssaec"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ofqpk"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -41,6 +42,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.311022, 0, -1.11901)
 
 [node name="Player" parent="." instance=ExtResource("3_ou8vh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.299, 0, 1.88194)
+
+[node name="Box" parent="." instance=ExtResource("4_ssaec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, 2)
 
 [connection signal="press" from="Floor Button" to="Door_Scene" method="turnon"]
 [connection signal="release" from="Floor Button" to="Door_Scene" method="turnoff"]
