@@ -35,7 +35,7 @@ use_collision = true
 mesh = SubResource("BoxMesh_vbgup")
 
 [node name="Floor Button" parent="." instance=ExtResource("1_ofqpk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.524735, 0, 1.41546)
+transform = Transform3D(1.59, 0, 0, 0, 1.59, 0, 0, 0, 1.59, -0.524735, 0, 1.41546)
 
 [node name="Door_Scene" parent="." instance=ExtResource("2_ssaec")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.311022, 0, -1.11901)
@@ -44,7 +44,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.311022, 0, -1.11901)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.299, 0, 1.88194)
 
 [node name="Box" parent="." instance=ExtResource("4_ssaec")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, 2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.065, 1, 2)
 
 [connection signal="press" from="Floor Button" to="Door_Scene" method="turnon"]
 [connection signal="release" from="Floor Button" to="Door_Scene" method="turnoff"]
