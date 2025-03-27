@@ -1,5 +1,6 @@
 extends CharacterBody3D
 
+
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
 @onready var interaction = $Head/Camera3D/Interaction
