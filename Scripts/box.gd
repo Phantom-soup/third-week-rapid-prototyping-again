@@ -9,9 +9,8 @@ var ogPosition
 
 
 func _ready() -> void:
-	mesh_instance_3d.set("surface_material_override/0", color)
+	mesh_instance_3d.mesh
 	initialSpawn = position
-	print(initialSpawn)
 
 
 func resetPosition(body):

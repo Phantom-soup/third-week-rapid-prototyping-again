@@ -50,7 +50,6 @@ func increment(body):
 	
 	if openerValue == openingKey:
 		anim.travel("Door_Open")
-	print(openerValue)
 
 
 func deincrement(body):
@@ -61,4 +60,3 @@ func deincrement(body):
 	
 	if openerValue == 0: 
 		anim.travel("Door_Close")
-	print(openerValue)
