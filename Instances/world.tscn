@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c813mjpmvuqea"]
+[gd_scene load_steps=23 format=3 uid="uid://c813mjpmvuqea"]
 
 [ext_resource type="PackedScene" uid="uid://3oetpb0fhym5" path="res://Instances/Button_Floor.tscn" id="1_ofqpk"]
 [ext_resource type="PackedScene" uid="uid://c0yeot8dnockd" path="res://Instances/door_scene.tscn" id="2_ssaec"]
@@ -54,6 +54,9 @@ size = Vector3(9.88, 12.8, 49.905)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_asr45"]
 albedo_color = Color(0.109804, 0.0980392, 0.207843, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ww8q"]
+albedo_color = Color(0.243137, 0.0980392, 0.207843, 1)
 
 [node name="World" type="Node3D"]
 
@@ -242,6 +245,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.4, -19.404)
 use_collision = true
 mesh = SubResource("BoxMesh_vbgup")
 material = SubResource("StandardMaterial3D_asr45")
+
+[node name="Main2" type="CSGMesh3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.76863, -6.4, -50.6838)
+use_collision = true
+mesh = SubResource("BoxMesh_vbgup")
+material = SubResource("StandardMaterial3D_asr45")
+
+[node name="Front" type="CSGBox3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4319, 1.23938, -40.9447)
+use_collision = true
+size = Vector3(16.7471, 10.4724, 1)
+material = SubResource("StandardMaterial3D_8ww8q")
 
 [connection signal="press" from="Room1/FB Single" to="Room1/Door1" method="increment"]
 [connection signal="release" from="Room1/FB Single" to="Room1/Door1" method="deincrement"]
