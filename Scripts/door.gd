@@ -3,6 +3,9 @@ extends Node3D
 @onready var anim: AnimationNodeStateMachinePlayback
 
 var is_open := false
+var openerValue = 0
+
+@export var openingKey : int
 
 
 func _ready() -> void:
@@ -38,3 +41,21 @@ func turnoff(body):
 	if is_open == false:
 		anim.travel("Door_Close")
 		
+
+func increment(body):
+	openerValue = openerValue + 1
+	
+	if openerValue == openingKey:
+		anim.travel("Door_Open")
+	print(openerValue)
+
+
+func deincrement(body):
+	openerValue = openerValue - 1
+	
+	if openerValue < 0:
+		openerValue = 0
+	
+	if openerValue == 0: 
+		anim.travel("Door_Close")
+	print(openerValue)
