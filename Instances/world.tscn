@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c813mjpmvuqea"]
+[gd_scene load_steps=22 format=3 uid="uid://c813mjpmvuqea"]
 
 [ext_resource type="PackedScene" uid="uid://3oetpb0fhym5" path="res://Instances/Button_Floor.tscn" id="1_ofqpk"]
 [ext_resource type="PackedScene" uid="uid://c0yeot8dnockd" path="res://Instances/door_scene.tscn" id="2_ssaec"]
@@ -28,8 +28,32 @@ albedo_color = Color(0.266667, 0.333333, 0.988235, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j5bhw"]
 albedo_color = Color(0.0666667, 0.823529, 0.168627, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ou8vh"]
+albedo_color = Color(0.0745098, 0.290196, 0.243137, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k2u20"]
+albedo_color = Color(0.330974, 0.18591, 0.153427, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3h1jh"]
+albedo_color = Color(0.329412, 0.184314, 0.152941, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7he3v"]
+albedo_color = Color(0.243137, 0.0980392, 0.207843, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0bwm3"]
+albedo_color = Color(0.243137, 0.0980392, 0.207843, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_748xx"]
+albedo_color = Color(0.243137, 0.0980392, 0.207843, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oa83l"]
+albedo_color = Color(0, 0, 0, 1)
+
 [sub_resource type="BoxMesh" id="BoxMesh_vbgup"]
 size = Vector3(9.88, 12.8, 49.905)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_asr45"]
+albedo_color = Color(0.109804, 0.0980392, 0.207843, 1)
 
 [node name="World" type="Node3D"]
 
@@ -170,14 +194,22 @@ size = Vector3(2.95464, 3.97876, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.33143, -0.877017, -20.6945)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="MoleWalk"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.43109, -1.70622, 9.95224)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.43109, -2.27047, 9.95224)
 use_collision = true
 size = Vector3(3.86218, 1, 31.6555)
+material = SubResource("StandardMaterial3D_ou8vh")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="MoleWalk"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.96771, -1.02299, 24.3599)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.96771, -1.66058, 24.3599)
 use_collision = true
 size = Vector3(4.93542, 1.80444, 3.27386)
+material = SubResource("StandardMaterial3D_k2u20")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="MoleWalk"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.95835, -0.620966, 24.3599)
+use_collision = true
+size = Vector3(2.95416, 1.40271, 3.27386)
+material = SubResource("StandardMaterial3D_3h1jh")
 
 [node name="Walls" type="Node3D" parent="."]
 
@@ -185,21 +217,31 @@ size = Vector3(4.93542, 1.80444, 3.27386)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.36839, 2.31226, 5.26848)
 use_collision = true
 size = Vector3(14.6942, 8.48291, 0.591064)
+material = SubResource("StandardMaterial3D_7he3v")
 
 [node name="Right" type="CSGBox3D" parent="Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.90518, 3.02469, -20.1057)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.12408, 3.02469, -20.1057)
 use_collision = true
 size = Vector3(1, 7.04938, 52.1185)
+material = SubResource("StandardMaterial3D_0bwm3")
+
+[node name="Left" type="CSGBox3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.22992, 1.87444, -20.1057)
+use_collision = true
+size = Vector3(1, 9.34988, 52.1185)
+material = SubResource("StandardMaterial3D_748xx")
 
 [node name="Roof" type="CSGBox3D" parent="Walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.86864, 6.88267, -19.9026)
 use_collision = true
 size = Vector3(19.2448, 1.01465, 50.6235)
+material = SubResource("StandardMaterial3D_oa83l")
 
 [node name="Main" type="CSGMesh3D" parent="Walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.4, -19.404)
 use_collision = true
 mesh = SubResource("BoxMesh_vbgup")
+material = SubResource("StandardMaterial3D_asr45")
 
 [connection signal="press" from="Room1/FB Single" to="Room1/Door1" method="increment"]
 [connection signal="release" from="Room1/FB Single" to="Room1/Door1" method="deincrement"]
