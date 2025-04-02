@@ -36,7 +36,7 @@ func drop_object():
 	if picked_object != null:
 		picked_object = null
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Interaction"):
 		if picked_object == null:
 			pickup_object()

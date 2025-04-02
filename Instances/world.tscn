@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://c813mjpmvuqea"]
+[gd_scene load_steps=10 format=3 uid="uid://c813mjpmvuqea"]
 
 [ext_resource type="PackedScene" uid="uid://3oetpb0fhym5" path="res://Instances/Button_Floor.tscn" id="1_ofqpk"]
 [ext_resource type="PackedScene" uid="uid://c0yeot8dnockd" path="res://Instances/door_scene.tscn" id="2_ssaec"]
 [ext_resource type="PackedScene" uid="uid://ixijbmta3kxr" path="res://Instances/Player.tscn" id="3_ou8vh"]
 [ext_resource type="PackedScene" uid="uid://bf52st6b3bhgp" path="res://Instances/box.tscn" id="4_ssaec"]
+[ext_resource type="PackedScene" uid="uid://d0ogj2ptk4i03" path="res://Instances/standing_button.tscn" id="5_ou8vh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ofqpk"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -49,6 +50,9 @@ openingKey = 1
 [node name="Box1" parent="Room1" instance=ExtResource("4_ssaec")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.065, 1, 1.18358)
 
+[node name="Standing Button" parent="Room1" instance=ExtResource("5_ou8vh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.4938)
+
 [node name="Room2" type="Node3D" parent="."]
 
 [node name="FB Double1" parent="Room2" instance=ExtResource("1_ofqpk")]
@@ -59,32 +63,53 @@ transform = Transform3D(1.58564, 0, 0, 0, 1.58564, 0, 0, 0, 1.58564, 1.89081, -9
 
 [node name="Door2" parent="Room2" instance=ExtResource("2_ssaec")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.311022, 0, -15.9395)
-openingKey = 1
+openingKey = 2
 
 [node name="Box2" parent="Room2" instance=ExtResource("4_ssaec")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.930568, 0.819588, -12.1578)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.349387, 3.05178, -11.7836)
+
+[node name="Standing Button" parent="Room2" instance=ExtResource("5_ou8vh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.449529, 0.00291216, -12.3551)
 
 [node name="Room3" type="Node3D" parent="."]
 transform = Transform3D(0.986363, 0, 0, 0, 0.986363, 0, 0, 0, 0.986363, -1.19209e-07, -2.84217e-14, -9.53674e-07)
 
 [node name="FB Triple" parent="Room3" instance=ExtResource("1_ofqpk")]
-transform = Transform3D(1.60756, 0, 0, 0, 1.60756, 0, 0, 0, 1.60756, -0.0304059, 5.76293e-14, -20.3813)
+transform = Transform3D(1.60756, 0, 0, 0, 1.60756, 0, 0, 0, 1.60756, -0.0304059, 5.76293e-14, -20.2727)
 
 [node name="FB Triple2" parent="Room3" instance=ExtResource("1_ofqpk")]
-transform = Transform3D(1.60756, 0, 0, 0, 1.60756, 0, 0, 0, 1.60756, -2.11495, 5.76293e-14, -23.3653)
+transform = Transform3D(1.60756, 0, 0, 0, 1.60756, 0, 0, 0, 1.60756, -2.23049, 5.76293e-14, -22.8551)
 
 [node name="FB Triple3" parent="Room3" instance=ExtResource("1_ofqpk")]
-transform = Transform3D(1.60756, 0, 0, 0, 1.60756, 0, 0, 0, 1.60756, 1.84506, 5.76293e-14, -23.2547)
+transform = Transform3D(1.60756, 0, 0, 0, 1.60756, 0, 0, 0, 1.60756, 2.28381, 5.76293e-14, -23.2547)
 
 [node name="Door3" parent="Room3" instance=ExtResource("2_ssaec")]
 transform = Transform3D(1.01383, 0, 0, 0, 1.01383, 0, 0, 0, 1.01383, 0.315322, 2.88147e-14, -27.37)
-openingKey = 1
+openingKey = 3
 
 [node name="Box3" parent="Room3" instance=ExtResource("4_ssaec")]
-transform = Transform3D(1.01383, 0, 0, 0, 1.01383, 0, 0, 0, 1.01383, 1.91586, 0.637291, -20.9035)
+transform = Transform3D(1.01383, 0, 0, 0, 1.01383, 0, 0, 0, 1.01383, 0.0999767, 2.72763, -22.3335)
+
+[node name="Standing Button" parent="Room3" instance=ExtResource("5_ou8vh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -24.6961)
 
 [connection signal="press" from="Room1/FB Single" to="Room1/Door1" method="increment"]
 [connection signal="release" from="Room1/FB Single" to="Room1/Door1" method="deincrement"]
+[connection signal="touched" from="Room1/Standing Button" to="Room1/Box1" method="resetPosition"]
+[connection signal="touched" from="Room1/Standing Button" to="Room2/Box2" method="resetPosition"]
+[connection signal="touched" from="Room1/Standing Button" to="Room3/Box3" method="resetPosition"]
+[connection signal="press" from="Room2/FB Double1" to="Room2/Door2" method="increment"]
+[connection signal="release" from="Room2/FB Double1" to="Room2/Door2" method="deincrement"]
+[connection signal="press" from="Room2/FB Double2" to="Room2/Door2" method="increment"]
+[connection signal="release" from="Room2/FB Double2" to="Room2/Door2" method="deincrement"]
+[connection signal="touched" from="Room2/Standing Button" to="Room2/Box2" method="resetPosition"]
+[connection signal="press" from="Room3/FB Triple" to="Room3/Door3" method="increment"]
+[connection signal="release" from="Room3/FB Triple" to="Room3/Door3" method="deincrement"]
+[connection signal="press" from="Room3/FB Triple2" to="Room3/Door3" method="increment"]
+[connection signal="release" from="Room3/FB Triple2" to="Room3/Door3" method="deincrement"]
+[connection signal="press" from="Room3/FB Triple3" to="Room3/Door3" method="increment"]
+[connection signal="release" from="Room3/FB Triple3" to="Room3/Door3" method="deincrement"]
+[connection signal="touched" from="Room3/Standing Button" to="Room3/Box3" method="resetPosition"]
 
 [editable path="Room1/Door1"]
 [editable path="Room1/Box1"]

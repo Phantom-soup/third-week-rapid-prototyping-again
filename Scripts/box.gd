@@ -9,9 +9,8 @@ var ogPosition
 
 
 func _ready() -> void:
-	mesh_instance_3d.mesh
 	initialSpawn = position
 
 
-func resetPosition(body):
+func resetPosition(_body):
 	position = initialSpawn

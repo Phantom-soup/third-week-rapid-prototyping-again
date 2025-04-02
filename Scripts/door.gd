@@ -4,12 +4,14 @@ extends Node3D
 
 var is_open := false
 var openerValue = 0
+var closeKey
 
 @export var openingKey : int
 
 
 func _ready() -> void:
 	anim = $AnimationTree.get("parameters/playback")
+	closeKey = openingKey - openingKey
 
 
 func toggle(_body):
@@ -24,7 +26,7 @@ func toggle(_body):
 		anim.travel("Door_Close")
 
 
-func turnon(body):
+func turnon(_body):
 	is_open = true
 	
 	if is_open == true:
@@ -33,7 +35,7 @@ func turnon(body):
 		anim.travel("Door_Close")
 
 
-func turnoff(body):
+func turnoff(_body):
 	is_open = false
 	
 	if is_open == true:
@@ -42,7 +44,7 @@ func turnoff(body):
 		anim.travel("Door_Close")
 		
 
-func increment(body):
+func increment(_body):
 	openerValue = openerValue + 1
 	
 	if openerValue > openingKey:
@@ -52,11 +54,11 @@ func increment(body):
 		anim.travel("Door_Open")
 
 
-func deincrement(body):
+func deincrement(_body):
 	openerValue = openerValue - 1
 	
 	if openerValue < 0:
 		openerValue = 0
 	
-	if openerValue == 0: 
+	if openerValue != openingKey: 
 		anim.travel("Door_Close")
