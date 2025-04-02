@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c813mjpmvuqea"]
+[gd_scene load_steps=14 format=3 uid="uid://c813mjpmvuqea"]
 
 [ext_resource type="PackedScene" uid="uid://3oetpb0fhym5" path="res://Instances/Button_Floor.tscn" id="1_ofqpk"]
 [ext_resource type="PackedScene" uid="uid://c0yeot8dnockd" path="res://Instances/door_scene.tscn" id="2_ssaec"]
@@ -19,7 +19,17 @@ sky = SubResource("Sky_ssaec")
 tonemap_mode = 2
 
 [sub_resource type="BoxMesh" id="BoxMesh_vbgup"]
-size = Vector3(11.88, 0.805, 81.705)
+size = Vector3(11.88, 12.8, 49.905)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ou8vh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vbgup"]
+albedo_color = Color(0.266667, 0.333333, 0.988235, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_asr45"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j5bhw"]
+albedo_color = Color(0.0666667, 0.823529, 0.168627, 1)
 
 [node name="World" type="Node3D"]
 
@@ -31,12 +41,12 @@ shadow_enabled = true
 environment = SubResource("Environment_ou8vh")
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.399588, -34.7811)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.4, -19.404)
 use_collision = true
 mesh = SubResource("BoxMesh_vbgup")
 
 [node name="Player" parent="." instance=ExtResource("3_ou8vh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.299, 0, 1.88194)
+transform = Transform3D(0.209277, 0, 0.977856, 0, 1, 0, -0.977856, 0, 0.209277, 2.45189, 0, 2.49698)
 
 [node name="Room1" type="Node3D" parent="."]
 
@@ -68,6 +78,13 @@ openingKey = 2
 [node name="Box2" parent="Room2" instance=ExtResource("4_ssaec")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.349387, 3.05178, -11.7836)
 
+[node name="MeshInstance3D" parent="Room2/Box2" index="0"]
+visible = false
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Room2/Box2"]
+mesh = SubResource("BoxMesh_ou8vh")
+surface_material_override/0 = SubResource("StandardMaterial3D_vbgup")
+
 [node name="Standing Button" parent="Room2" instance=ExtResource("5_ou8vh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.449529, 0.00291216, -12.3551)
 
@@ -90,8 +107,32 @@ openingKey = 3
 [node name="Box3" parent="Room3" instance=ExtResource("4_ssaec")]
 transform = Transform3D(1.01383, 0, 0, 0, 1.01383, 0, 0, 0, 1.01383, 0.0999767, 2.72763, -22.3335)
 
+[node name="MeshInstance3D" parent="Room3/Box3" index="0"]
+visible = false
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Room3/Box3"]
+mesh = SubResource("BoxMesh_asr45")
+surface_material_override/0 = SubResource("StandardMaterial3D_j5bhw")
+
 [node name="Standing Button" parent="Room3" instance=ExtResource("5_ou8vh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -24.6961)
+
+[node name="MoleWalk" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.33143, -0.877017, -20.6945)
+
+[node name="Walls" type="Node3D" parent="."]
+
+[node name="Back" type="CSGBox3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.36839, 3.02686, 5.26848)
+size = Vector3(14.6942, 7.05371, 0.591064)
+
+[node name="Right" type="CSGBox3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.90518, 3.02469, -20.1057)
+size = Vector3(1, 7.04938, 52.1185)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.428375, 6.88267, -19.9026)
+size = Vector3(10.6508, 1.01465, 50.6235)
 
 [connection signal="press" from="Room1/FB Single" to="Room1/Door1" method="increment"]
 [connection signal="release" from="Room1/FB Single" to="Room1/Door1" method="deincrement"]

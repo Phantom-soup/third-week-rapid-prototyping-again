@@ -1,12 +1,18 @@
-[gd_scene load_steps=14 format=3 uid="uid://c0yeot8dnockd"]
+[gd_scene load_steps=16 format=3 uid="uid://c0yeot8dnockd"]
 
 [ext_resource type="Script" uid="uid://d0uooets4ocai" path="res://Scripts/door.gd" id="1_vuuvl"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_wpf7b"]
 size = Vector3(1.5, 2.5, 0.1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vuuvl"]
+albedo_color = Color(0.415686, 0.72549, 0.882353, 1)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_cu05g"]
 size = Vector3(1.49219, 2.51953, 0.14624)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wpf7b"]
+albedo_color = Color(0.415686, 0.72549, 0.882353, 1)
 
 [sub_resource type="Animation" id="Animation_u4h5h"]
 resource_name = "Door_Close"
@@ -100,6 +106,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 1.25, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Object_Doors/Door_Left"]
 mesh = SubResource("BoxMesh_wpf7b")
+surface_material_override/0 = SubResource("StandardMaterial3D_vuuvl")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Object_Doors/Door_Left"]
 shape = SubResource("BoxShape3D_cu05g")
@@ -110,6 +117,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 1.25, 0)
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Object_Doors/Door_Right"]
 mesh = SubResource("BoxMesh_wpf7b")
 skeleton = NodePath("../../Door_Left")
+surface_material_override/0 = SubResource("StandardMaterial3D_wpf7b")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Object_Doors/Door_Right"]
 shape = SubResource("BoxShape3D_cu05g")

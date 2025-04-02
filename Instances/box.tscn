@@ -5,6 +5,7 @@
 [sub_resource type="BoxMesh" id="BoxMesh_xobaj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_te4au"]
+albedo_color = Color(1, 0.619608, 0.172549, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_te4au"]
 
