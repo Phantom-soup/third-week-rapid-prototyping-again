@@ -14,7 +14,7 @@ const sensitivity = 0.007
 
 #Interactions
 var picked_object
-var pull_power = 4
+var pull_power = 8
 
 
 func _ready() -> void:

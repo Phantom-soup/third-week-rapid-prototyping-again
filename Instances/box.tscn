@@ -1,13 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://bf52st6b3bhgp"]
+[gd_scene load_steps=5 format=3 uid="uid://bf52st6b3bhgp"]
+
+[ext_resource type="Script" uid="uid://bmdirnl3uc8kl" path="res://Scripts/box.gd" id="1_te4au"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_xobaj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_te4au"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_te4au"]
 
 [node name="Box" type="RigidBody3D"]
+script = ExtResource("1_te4au")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_xobaj")
+surface_material_override/0 = SubResource("StandardMaterial3D_te4au")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_te4au")

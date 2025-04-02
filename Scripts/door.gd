@@ -45,6 +45,9 @@ func turnoff(body):
 func increment(body):
 	openerValue = openerValue + 1
 	
+	if openerValue > openingKey:
+		openerValue = openingKey
+	
 	if openerValue == openingKey:
 		anim.travel("Door_Open")
 	print(openerValue)
